@@ -16,6 +16,7 @@ public class PersonneDao implements IDao<Personne,Long>{
 
         );
     }
+
     @Override
     public Personne trouverParId(Long aLong) {
         System.out.println("[DAO -DS volatile] trouver le peersonne" + aLong);

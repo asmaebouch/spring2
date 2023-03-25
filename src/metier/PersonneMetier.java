@@ -2,6 +2,7 @@ package metier;
 
 import dao.IDao;
 import dao.Personne;
+import dao.PersonneDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,15 @@ public class PersonneMetier implements IMetier {
     IDao<Personne,Long> ageDao;
     public IDao<Personne, Long> setCreditDao(IDao<Personne,Long> dao2){
         return this.ageDao=dao2;
+    }
+    private PersonneDao personneDao;
+
+    public void setPersonneDao(PersonneDao personneDao) {
+        this.personneDao = personneDao;
+    }
+
+    public PersonneDao getPersonneDao() {
+        return personneDao;
     }
 
     @Override
