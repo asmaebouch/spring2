@@ -1,5 +1,8 @@
 package dao;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data  @NoArgsConstructor
 public class Personne {
     private Long id;
     private int year;
@@ -14,6 +17,7 @@ public class Personne {
         this.prenomUtilisateur=prenomUtilisateur;
         this.year=year;
         this.islamicYear=islamicYear;
+
     }
 
     public int getYear() {
@@ -35,6 +39,8 @@ public class Personne {
     public void setIslamicYear(int islamicYear) {
         this.islamicYear = islamicYear;
     }
+
+
 
     @Override
     public String toString() {

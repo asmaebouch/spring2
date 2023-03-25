@@ -1,9 +1,11 @@
 package dao;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 @Component("dao")
 public class PersonneDao implements IDao<Personne,Long>{
     public  static Set<Personne> BDPersonne()
