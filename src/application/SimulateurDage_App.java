@@ -114,13 +114,17 @@ public class SimulateurDage_App {
         ApplicationContext context =new AnnotationConfigApplicationContext("dao","metier","presentation");
         creditControleur =(IPersonneControleur) context.getBean(IPersonneControleur.class);
         creditControleur.afficher_Age(1L);
+        creditControleur.afficher_Age(2L);
     }
         public static void main(String[] args) throws Exception {
       //  test1();
        // test2();
-        test3();
-        //test4();
+      //  test3();
+        test4();
+
+
+            }
     }
 
 
-}
+

@@ -6,16 +6,20 @@ import lombok.NoArgsConstructor;
 public class Personne {
     private Long id;
     private int year;
+    private int month;
+    private int day;
     private String nomUtilisateur ;
     private String prenomUtilisateur;
-    private int islamicYear;
+    private String islamicYear;
 
 
-    public Personne(Long id, int year, String nomUtilisateur, String prenomUtilisateur,int islamicYear){
+    public Personne(Long id, int year, String nomUtilisateur, String prenomUtilisateur,String islamicYear,int month,int day){
         this.id=id;
         this.nomUtilisateur=nomUtilisateur;
         this.prenomUtilisateur=prenomUtilisateur;
         this.year=year;
+        this.month=month;
+        this.day=day;
         this.islamicYear=islamicYear;
 
     }
@@ -27,7 +31,13 @@ public class Personne {
     public Long getId() {
         return id;
     }
-
+    public int getDay(){
+        return day;
+    }
+    public int getMonth()
+    {
+        return month;
+    }
     public String getNomUtilisateur() {
         return nomUtilisateur;
     }
@@ -36,7 +46,7 @@ public class Personne {
         return prenomUtilisateur;
     }
 
-    public void setIslamicYear(int islamicYear) {
+    public void setIslamicYear(String islamicYear) {
         this.islamicYear = islamicYear;
     }
 
@@ -49,7 +59,7 @@ public class Personne {
                 ", year=" + year +
                 ", nomUtilisateur='" + nomUtilisateur + '\'' +
                 ", prenomUtilisateur='" + prenomUtilisateur + '\'' +
-                ", Islamic Year =' " +islamicYear+
-                '}';
+                ", Islamic Year = ' " +islamicYear+
+                "'" + '}';
     }
 }

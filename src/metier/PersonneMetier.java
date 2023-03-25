@@ -6,6 +6,13 @@ import dao.PersonneDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.chrono.HijrahChronology;
+import java.time.chrono.HijrahDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 @Service("metier")
 
 public class PersonneMetier implements IMetier {
@@ -32,8 +39,13 @@ public class PersonneMetier implements IMetier {
         if (age == null) throw new Exception("L'id du personne est incrorreecte :: [Personne non trouve]");
         else {
 
-           Integer Islamic_year = (int) ((age.getYear() - 622) * 0.970223);
-         age.setIslamicYear(Islamic_year);
+            LocalDate gregorianDate = LocalDate.of(age.getYear(), age.getMonth(), age.getDay());
+            HijrahDate hijriDate = HijrahChronology.INSTANCE.date(gregorianDate);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("en"));
+            String formattedHijriDate = formatter.format(hijriDate);
+           // System.out.println(formattedHijriDate);
+
+         age.setIslamicYear(formattedHijriDate);
          /////////////////////////////
            // Calendar islamicCalendar = new GregorianCalendar();
             //islamicCalendar.set(Calendar.YEAR, islamicCalendar.get(Calendar.YEAR));
